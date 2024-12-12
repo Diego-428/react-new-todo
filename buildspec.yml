@@ -3,7 +3,7 @@ phases:
   install:
     commands:
       - echo install step...
-  pre-build:
+  pre_build:
     commands:
       - echo logging in to AWS ECR...
       - $(aws ecr get-login --no-include-email --region us-east-1)
@@ -13,7 +13,7 @@ phases:
       - cd src
       - docker build -t breakout-room-3-todo-image:latest .
       - docker tag breakout-room-3-todo-image:latest 962804699607.dkr.ecr.us-west-2.amazonaws.com/breakout-room-3-repo:latest
-  post-build:
+  post_build:
     commands:
       - echo build Docker iamge complete `date`
       - echo push latest Docker images to ECR...
